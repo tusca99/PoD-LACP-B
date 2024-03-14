@@ -1,0 +1,31 @@
+&control
+	calculation = 'relax',
+	restart_mode = 'from_scratch',
+	prefix = 'h2o',
+	tprnfor = .true.,
+	pseudo_dir = '/opt/quantumespresso/pseudo_potenzials',
+	outdir = '/opt/quantumespresso/results/',
+/
+&system
+	ibrav = 1,
+	celldm(1) = 20.0,
+	nat = 3,
+	ntyp = 2,
+	ecutwfc = 70.0,
+	nbnd = 5
+/
+&electrons
+	diagonalization = 'david'
+	mixing_beta = 0.05,
+	conv_thr = 1.0d-12
+/
+&ions
+/
+ATOMIC_SPECIES
+ H 1.0	H.upf
+ O 16.0 O.upf
+ATOMIC_POSITIONS {bohr}
+H	10 10 10
+H	12.862909818 10 10
+O	11.431454909 11.10935019 10
+K_POINTS {gamma} 
