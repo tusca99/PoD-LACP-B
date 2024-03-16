@@ -13,13 +13,13 @@ For more details see the bachelor thesis document.
 The repository is organized as follows:
 
 - **[water_dnn/model_graphs_[scenario]]**: folders for predictions with various scenario
-  - Under these folders one can find graphs for multiple neural networks predictions: every image is named with the primary hyperparameters that has been changed during the development of the final neural network, so it is easy to refer to the corresponding saved model.
+  - Under these folders you can find graphs for multiple neural networks predictions: every image is named with the primary hyperparameters that has been changed during the development of the final neural network, so it is easy to refer to the corresponding saved model.
 - **[water_dnn/model_plots]**: folder where a given model loss function plot can be found.
 - **[water_dnn/saved_model]**: folder where the developed trained models are saved in '.keras' format
   - These models use the same naming scheme that is used for their corresponding graphs and plots for ease of retrieval.
 - **[water_dnn/saved_dataset]**: folder where all generated datasets are stored
   - all datasets are stored with less rigid naming. Be aware of that.
-  - note: 'Picle_dataset_merge.ipynb' is a macro that has been used to merge similar smaller datasets in one larger one with the possibility of filtering during the merge.
+  - note: 'Picle_dataset_merge.ipynb' is a macro that has been used to merge similar smaller datasets in a larger one with the possibility of filtering during the merge.
 - **[water_dnn/nnprova.ipynb]**: neural network training and test notebook.
 - **[water_dnn/pwbase_workflow_datasetcreation_aiida.ipynb]**: simulation and dataset creation notebook
 
@@ -28,7 +28,7 @@ The repository is organized as follows:
 ## Usage
 
 All the jupyter notebooks are written in python.
-To use the simulation code you need Aiida with aiida-quantumespresso connected to a functioning pw.x code, plus some other libraries mentioned in the code.
+To use the simulation code you need Aiida with aiida-quantumespresso connected to a functioning pw.x code, plus some other libraries mentid in the code.
 To use the neural network code you need Tensorflow with Keras.
 
 ## Citation
