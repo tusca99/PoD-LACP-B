@@ -20,7 +20,7 @@ The repository is organized as follows:
 - **[water_dnn/saved_dataset]**: folder where all generated datasets are stored
   - all datasets are stored with less rigid naming. Be aware of that.
   - note: 'Picle_dataset_merge.ipynb' is a macro that has been used to merge similar smaller datasets in a larger one with the possibility of filtering during the merge.
-- **[water_dnn/nnprova.ipynb]**: neural network training and test notebook.
+- **[water_dnn/water_dnn.ipynb]**: neural network training and test notebook.
 - **[water_dnn/pwbase_workflow_datasetcreation_aiida.ipynb]**: simulation and dataset creation notebook
 
 
