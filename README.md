@@ -11,10 +11,7 @@ The course focuses on using and experimenting on common and emergent tools for d
 
 The repository is organized as follows:
 
-- **[water_dnn/model_graphs_[scenario]]**: folders for predictions with various scenario
-  - Under these folders you can find graphs for multiple neural networks predictions: every image is named with the primary hyperparameters that has been changed during the development of the final neural network, so it is easy to refer to the corresponding saved model.
-- **[water_dnn/model_plots]**: folder where a given model loss function plot can be found.
-
+- **[exercises/Ex[i]]**: folders for each exercise with the corresponding material
 
 ## Usage
 
