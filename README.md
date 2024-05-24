@@ -12,6 +12,7 @@ The course focuses on using and experimenting on common and emergent tools for d
 The repository is organized as follows:
 
 - **[exercises/Ex[i]]**: folders for each exercise with the corresponding material
+- - **[SBI]**: folder Simulation Based Inference project
 
 ## Usage
 
