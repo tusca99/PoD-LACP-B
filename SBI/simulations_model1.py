@@ -112,7 +112,7 @@ def simulate(tlist, initial_position, oversampling, prerun, d, μ, k, τ, D1, D2
         for j in range(oversampling):
             state += dx(state, dto, d, μ, k, τ, D1, D2)
         data[i, :, :] = state
-        forces[i, :, :] = force(state, d, μ, k, τ)
+
     #data[-1, :, :] = state
     #forces[-1, :, :] = force(state, d, μ, k, τ) 
     return data, forces
@@ -168,36 +168,9 @@ def simulator_sbi_entropy(pars, dt, oversampling, prerun, Npts, prefix = None, d
         return Cxx[idx_corr] , S
     if prefix == 'svr' :
         return S_red[idx_corr] , S
-    if prefix == None : 
+    if prefix == 'full' : 
         return npcombo, S
 
-
-@nb.njit(fastmath=True)
-def simulator_entropy(pars, dt, oversampling, prerun, Npts, prefix = None): 
-    k=1
-    μ = 1
-    kBT = 1
-    D1 = kBT * μ
-    ϵ = np.float64(pars[0])
-    τ = np.float64(pars[1])
-    D2 = ϵ**2 / τ
-    # Force field parameters (stochastic Lorenz process)
-    d = np.float64(pars[2])
-    tau = dt * Npts
-    tlist = np.linspace(0. + dt/2., tau, Npts)
-    initial_position = np.zeros(shape=(1,2), dtype=np.float64) #(x,f) pairs
-
-    data, forces = simulate(tlist, initial_position=initial_position, oversampling=oversampling, 
-                            prerun=prerun, d=d, μ=μ, k=k, τ=τ, D1=D1, D2=D2, dt=dt)
-    
-    x = data[:, 0, 0]
-    f_int = (forces[:, 0, 0] / μ + k * x)
-    #print(x)
-
-    
-    S = entropy(x, forces[:, 0, 0], tlist, dt, D1)
-    #S=entropy2(data, tlist, dt, d, μ, k, τ, D1, D2)
-    return S
 
 @nb.njit(fastmath=True)
 def simulator_sbi(pars, dt, oversampling, prerun, Npts, d=0, k=1): 
@@ -230,6 +203,6 @@ def simulator_sbi(pars, dt, oversampling, prerun, Npts, d=0, k=1):
     idx_corr = np.where(tlist < t_corr)[0]
     S_red = 1 - (S2[idx_corr] + S3[idx_corr]) / (kBT * tlist[idx_corr])
     
-    npcombo = np.concatenate((Cxx[idx_corr], S_red[idx_corr]))
+    npcombo = np.stack((Cxx[idx_corr], S_red[idx_corr]))
     
     return npcombo
