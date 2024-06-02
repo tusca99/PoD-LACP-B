@@ -250,18 +250,39 @@ def simulator_sbi_entropy(pars, dt, oversampling, prerun, Npts, features = None,
 
     S = entropy(x, y, forces[:, 0, 0]/μ[0], forces[:, 0, 1]/μ[1], tlist, dt, D1) 
     
-    # Pack selected features into numpy array
-    selected_features = []
+    # Determine the total length needed for the concatenated array
+    total_length = 0
     if features:
         for feature in features:
             if feature == "Cxx":
-                selected_features.append(Cxx[idx_corr])
+                total_length += len(Cxx[idx_corr])
             elif feature == "Cyy":
-                selected_features.append(Cyy[idx_corr])
+                total_length += len(Cyy[idx_corr])
             elif feature == "S_red_x":
-                selected_features.append(S_red_x)
+                total_length += len(S_red_x)
             elif feature == "S_red_y":
-                selected_features.append(S_red_y)
+                total_length += len(S_red_y)
 
-    npcombo = np.concatenate(np.array(selected_features), axis=0)
-    return npcombo, S
+    # Pre-allocate the concatenated array
+    npcombo = np.zeros(total_length, dtype=np.float64)
+
+    # Copy selected features into the pre-allocated array
+    current_index = 0
+    if features:
+        for feature in features:
+            if feature == "Cxx":
+                npcombo[current_index:current_index + len(Cxx[idx_corr])] = Cxx[idx_corr]
+                current_index += len(Cxx[idx_corr])
+            elif feature == "Cyy":
+                npcombo[current_index:current_index + len(Cyy[idx_corr])] = Cyy[idx_corr]
+                current_index += len(Cyy[idx_corr])
+            elif feature == "S_red_x":
+                npcombo[current_index:current_index + len(S_red_x)] = S_red_x
+                current_index += len(S_red_x)
+            elif feature == "S_red_y":
+                npcombo[current_index:current_index + len(S_red_y)] = S_red_y
+                current_index += len(S_red_y)
+
+    S_analytic = (μ[1]*ϵ**2) / ((1 + k[1]*μ[1]*τ) - (d**2*μ[0]*μ[1]*τ**2) / (1 + k[0]*μ[0]*τ))
+    
+    return npcombo, S, S_analytic
