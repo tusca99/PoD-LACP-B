@@ -35,4 +35,4 @@ If you have any questions, feedback, or issues regarding the data in this reposi
 
 ## Acknowledgments
 
-All the exercises are group projects with the contribution of Chiara Tramarin, Vittoria Bettio, Cesare Beccarelli
+All the exercises are group projects with the contribution of @chiatrama, @bevittoria, @belfagor123
