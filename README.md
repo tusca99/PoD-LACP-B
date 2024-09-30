@@ -11,12 +11,13 @@ The course focuses on using and experimenting on common and emergent tools for d
 
 The repository is organized as follows:
 
-- - **[SBI]**: folder Simulation Based Inference project
+- - **[exercises]**: exercise folder
+- - **[SBI_model1]**: folder Simulation Based Inference project for 'quartic potential' model
+- - **[SBI_model2]**: folder Simulation Based Inference project for 'red blood cell' model
 
 ## Usage
 
 All the jupyter notebooks are written in python.
-To use the neural network code you need Tensorflow with Keras and a few other packages mentioned in each notebook.
 
 ## Citation
 
