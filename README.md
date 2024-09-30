@@ -11,9 +11,9 @@ The course focuses on using and experimenting on common and emergent tools for d
 
 The repository is organized as follows:
 
-- - **[exercises]**: exercise folder
-- - **[SBI_model1]**: folder Simulation Based Inference project for 'quartic potential' model
-- - **[SBI_model2]**: folder Simulation Based Inference project for 'red blood cell' model
+- **[exercises]**: exercise folder
+- **[SBI_model1]**: folder Simulation Based Inference project for 'quartic potential' model
+- **[SBI_model2]**: folder Simulation Based Inference project for 'red blood cell' model
 
 ## Usage
 
