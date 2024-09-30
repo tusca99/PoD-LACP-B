@@ -11,7 +11,6 @@ The course focuses on using and experimenting on common and emergent tools for d
 
 The repository is organized as follows:
 
-- **[exercises/Ex[i]]**: folders for each exercise with the corresponding material
 - - **[SBI]**: folder Simulation Based Inference project
 
 ## Usage
@@ -21,7 +20,7 @@ To use the neural network code you need Tensorflow with Keras and a few other pa
 
 ## Citation
 
-If you use any data from this repository in your own research or projects, please cite the following: [insert pdf link]
+If you use any data from this repository in your own research or projects, please cite this repository.
 
 ## License
 
